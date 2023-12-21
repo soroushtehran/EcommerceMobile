@@ -5,14 +5,17 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Header from "./components/Header/Header";
-import Home from "./pages/Home/Home";
 import Footer from "./components/Footer/Footer";
+import { useRoutes } from "react-router-dom";
+import routes from "./routes";
 
 function App() {
+  const router = useRoutes(routes);
+
   return (
     <div>
       <Header />
-      <Home />
+      {router}
       <Footer />
     </div>
   );
