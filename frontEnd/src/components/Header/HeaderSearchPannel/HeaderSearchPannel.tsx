@@ -1,76 +1,26 @@
 import React, { useState } from 'react'
-import { HiSearch } from "react-icons/hi";
-import { AnimatePresence, MotionConfig, motion, transform, useAnimationControls } from "framer-motion";
-import CustomIcon from '../../CustomIcon/CustomIcon';
+import { BsSearch } from "react-icons/bs";
 
 
 export default function HeaderSearchPannel() {
-    const [showSearchInput, setShowSearchInput] = useState(false);
-    const controls = useAnimationControls();
-
-    function onSearchIconClick() {
-        const newValue = !showSearchInput;
-        setShowSearchInput(newValue)
-        if (newValue) controls.start("start");
-        else controls.start("end");
-
-    }
 
     return (
-        <div className='container'>
-            <div className='header__search-holder relative flex w-max'>
-                <AnimatePresence>
-                    <motion.div className='w-36 lg:w-72 xl:w-80 h-10 origin-left border-2 rounded-r-full overflow-hidden'
-                        variants={{
-                            initial: {
-                                scaleX: 0
-                            },
-                            start: {
-                                scaleX: 1
-                            },
-                            end: {
-                                scaleX: 0
-                            },
-                        }}
-                        transition={{
-                            duration: 1.5
-                        }}
-                        initial="initial"
-                        animate={controls}
-                    >
-                        <input className='w-full h-full text-black border-none outline-none placeholder:text-slate-400' type="text" placeholder='جستجو' />
-                    </motion.div>
-                </AnimatePresence>
-
-                <div
-                    className={`header__search--icon group rounded-full hover:bg-black transition-colors delay-300 duration-500`}
-                    onClick={onSearchIconClick}>
-                    <CustomIcon icon={<HiSearch />} />
-                    <AnimatePresence>
-                        <motion.div
-                            className={`bg-black absolute w-full h-full -z-10 duration-0 rounded-l-full transition-all`}
-                            variants={{
-                                initial: {
-                                    opacity: 0,
-                                },
-                                start: {
-                                    borderRadius: '50% 0 0 50%',
-                                    opacity: 1,
-                                },
-                                end: {
-                                    borderRadius: '50% 50% 50% 50%',
-                                    opacity: 0,
-                                },
-                            }}
-                            transition={{
-                                duration: 1.5
-                            }}
-                            initial="initial"
-                            animate={controls}
-                        ></motion.div>
-                    </AnimatePresence>
+        <>
+            <div className='hidden xl:flex items-center'>
+                <div className="relative hidden md:block">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span className="sr-only">Search icon</span>
+                    </div>
+                    <input type="text" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="...جستجو" />
                 </div>
             </div>
-        </div >
+            <div className="flex xl:hidden items-center py-4 dark:text-white cursor-pointer text-xl">
+                <BsSearch />
+            </div>
+        </>
+
     )
 }
