@@ -7,6 +7,7 @@ import { BsMoon, BsSun } from "react-icons/bs";
 import Logo from "../Logo/Logo";
 import HeaderSearchPannel from "./HeaderSearchPannel/HeaderSearchPannel";
 import { NavLink } from "react-router-dom";
+import CustomIcon from "../CustomIcon/CustomIcon";
 
 export default function Header() {
 
@@ -28,7 +29,7 @@ export default function Header() {
   return (
     <>
       {/* header */}
-      <header className='fixed right-0 left-0 top-9 w-[98%] lg:w-[90%] h-24 hidden md:flex items-center justify-between bg-gray-200 dark:bg-slate-900 mx-auto px-5 lg:px-10 pl-4 py-5 rounded-3xl z-40'>
+      <header className='fixed right-0 left-0 top-2 w-[98%] lg:w-[90%] h-20 hidden md:flex items-center justify-between bg-gray-200/90 dark:bg-slate-900 mx-auto px-4 py-2 rounded-3xl z-40'>
         <div className='flex items-center justify-between w-full'>
 
           {/* --nav & logo-- */}
@@ -82,15 +83,18 @@ export default function Header() {
 
               {/* cart */}
               <div className="relative group">
-                <div className='py-4  dark:text-white cursor-pointer'>
-                  <HiOutlineShoppingCart />
+                <div className='py-4 dark:text-white cursor-pointer'>
+                  {/* <HiOutlineShoppingCart /> */}
+                  <CustomIcon icon={<HiOutlineShoppingCart />} />
                 </div>
                 <div className="absolute p-6 w-[400px] left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all delay-75 bg-white dark:bg-zinc-700 text-base rounded-2xl border-t-[3px] border-t-sky-400 text-zinc-700 dark:text-white space-y-4 tracking-normal shadow-xl child-hover:text-sky-400 child:transition-colors ">
                   <div className="flex items-center justify-between  text-xs font-DanaMedium tracking-tighter">
                     <span className="text-gray-300">1 مورد</span>
                     <a href="#" className="flex items-center">
                       مشاهده سبد خرید
-                      <div className="w-4 h-4 text-base">  <IoIosArrowBack /></div>
+                      <div className="w-4 h-4 text-base">
+                        <IoIosArrowBack />
+                      </div>
                     </a>
                   </div>
                   <div className="border-b border-b-gray-300 dark:border-b-white/10 pb-1 divide-y divide-gray-100 dark:divide-white/10 child:py-5">
@@ -238,6 +242,7 @@ export default function Header() {
               </div>
 
               <a href="#" className='inline-flex gap-x-2 text-base'>
+                {/* <CustomIcon icon={<HiOutlineShoppingCart />} /> */}
                 <HiOutlineShoppingCart />
                 <span className="tracking-tighter"> سبدخرید </span>
               </a>

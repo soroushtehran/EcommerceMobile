@@ -17,8 +17,8 @@ function App() {
     <div>
       <ProgressTop />
       <Header />
-      {/* {router}
-      <Footer /> */}
+      {router}
+      <Footer />
     </div>
   );
 }
